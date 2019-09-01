@@ -21,7 +21,22 @@
       class App extends React.Component {
         state = {
           name: "Tony",
-          age: 30
+          age: 30,
+          superHeroName: "IronMan"
+        };
+        handleClick = event => {
+          //   console.log(event.target);
+          this.setState({
+            name: "Thor",
+            age: 25,
+            superHeroName: "Lord of Thunder"
+          });
+        };
+        handleMouseOver = event => {
+          console.log(event.target, event.pageX);
+        };
+        handleCopy = event => {
+          console.log("Try being Me!");
         };
         render() {
           return (
@@ -30,6 +45,9 @@
               <p>
                 My name is: {this.state.name} and I am {this.state.age}
               </p>
+              <button onClick={this.handleClick}>Click Me</button>
+              <button onMouseOver={this.handleMouseOver}>Hover over Me</button>
+              <p onCopy={this.handleCopy}>I am {this.state.superHeroName}!</p>
             </div>
           );
         }
